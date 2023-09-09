@@ -1,0 +1,53 @@
+{{page-title 'Pokemon'}}
+<div class='pokemon-container'>
+  <div class='pokemon-profile-info'>
+    {{! template-lint-disable require-valid-alt-text }}
+    <div class="pokemon-profile">
+      <figure>
+        <ProfileCard
+          class='fixed-pokeball'
+          @profileName={{if this.isCaught 'Release' 'Catch'}}
+          @profileImg={{if this.isCaught @model.image '/icons8-here-24.png'}}
+          {{on 'click' this.handleToggle}}
+        />
+      </figure>
+      <figcaption><h2>{{@model.name}}</h2></figcaption>
+    </div>
+    <div class='pokemon-basic-info'>
+      <p><strong>Weight:</strong>
+        {{@model.weight}}</p>
+      <p><strong>Experience:</strong>
+        {{@model.experience}}</p>
+      <strong>Types:</strong>
+      <div class='pokemon-type detail-values'>
+        {{#each @model.types as |type|}}
+          <span class='btn btn-secondary btn-pill {{type}}'>{{type}}</span>
+        {{else}}
+          <span>Unspecified type</span>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class='pokemon-details'>
+    <div class='detail-values mb-1'>
+      <h4 class='detail-title'>Abilities</h4>
+      {{#each @model.abilities as |ability|}}
+        <span
+          class='btn btn-pale btn-shadow-outline btn-black btn-pill'
+        >{{ability}}</span>
+      {{else}}
+        <span>No abilities</span>
+      {{/each}}</div>
+    <div class='moves detail-values mb-1'><h4 class='detail-title'>Moves</h4>
+      {{#each @model.moves as |move|}}
+        <span
+          class='btn btn-pale btn-black btn-shadow-outline btn-pill'
+        >{{move}}</span>
+      {{else}}
+        <span>No moves</span>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+{{outlet}}

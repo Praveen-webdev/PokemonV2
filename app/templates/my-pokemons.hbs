@@ -1,0 +1,15 @@
+{{page-title 'MyPokemons'}}
+<div class='pokemons-container'>
+  {{#each this.collection.pokemons as |pokemon|}}
+    <LinkTo @route=''>
+      <ProfileCard
+        @profileName={{pokemon.name}}
+        @profileImg={{pokemon.image}}
+      />
+    </LinkTo>
+  {{else}}
+    <div class='d-flex center'>
+      <p>No pokemons found !</p>
+    </div>
+  {{/each}}
+</div>

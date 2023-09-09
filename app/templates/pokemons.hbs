@@ -1,0 +1,16 @@
+{{outlet}}
+{{#if this.isBase}}
+  <div class='btn-group'>
+    <button
+      type='button'
+      class='btn btn-outline-primary btn-med'
+      {{on 'click' this.handleClick}}
+      {{did-insert this.focus}}
+    >Load more...
+    </button>
+    <button type='button'  class='btn-to-top btn-fixed-br ' {{on 'click' this.scrollToTop}}><img
+        src='icons8-double-up.gif'
+        alt='Back to top'
+      /></button>
+  </div>
+{{/if}}

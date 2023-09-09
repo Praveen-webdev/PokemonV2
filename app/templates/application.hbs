@@ -1,7 +1,25 @@
-{{page-title "Pokemon"}}
-
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+{{page-title 'Pokedex'}}
+<div id='page-top'>
+  <header class='header sticky text-center mb-1 d-flex'>
+    <div class='logo-text-center'>
+      {{! template-lint-disable require-valid-alt-text }}
+      <img class='pokemon-logo' src='pngimg.com - pokemon_logo_PNG6.png' />
+    </div>
+    <nav class='nav-link'>
+      <LinkTo
+        class='btn btn-primary base-link'
+        @route='pokemons.index'
+        @query={{hash skipModel=true}}
+      >Base</LinkTo>
+      <LinkTo
+        class='btn btn-primary collection-link'
+        @route='my-pokemons'
+      >Collection<span
+          class='btn btn-secondary btn-square btn-shadow-inset'
+        >{{this.collection.pokemons.length}}</span></LinkTo>
+    </nav>
+  </header>
+  <main class='wrapper'> 
+    {{outlet}}
+  </main>
+</div>

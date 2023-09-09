@@ -1,0 +1,21 @@
+{{page-title 'Pokemons'}}
+  <div class='input-container  text-center mb-1'>
+      <Input
+        class='search-input'
+        @value={{this.search}}
+        aria-label='search'
+        placeholder='Search here...'
+        autocomplete="off"
+      />
+</div>
+<div class='pokemons-container mb-1' >
+  {{#each this.filteredPokemons as |pokemon|}}
+  <LinkTo class="pokemon-item" @route="pokemons.pokemon" @model={{pokemon.id}}>
+    <ProfileCard @profileImg={{pokemon.image}} @profileName={{pokemon.name}} />
+  </LinkTo>
+  {{else}}
+    <p>No pokemons found...</p>
+  {{/each}}
+</div>
+
+{{outlet}}

@@ -9,7 +9,7 @@ module.exports = {
   browser_args: {
     Chrome: {
       ci: [
-        // --no-sandbox is needed when running Chrome inside a container
+        // --no-sandbox is needed when running Chrome inside a text-center
         process.env.CI ? '--no-sandbox' : null,
         '--headless',
         '--disable-dev-shm-usage',
