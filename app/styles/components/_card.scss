@@ -12,7 +12,7 @@ $push-btn-inside-width: $poke-card-width/13;
   overflow: hidden;
   cursor: pointer;
   .profile-img {
-    max-width: 100%;
+    max-width: 5rem;
     min-height: 6rem;
   }
 
@@ -71,25 +71,6 @@ $push-btn-inside-width: $poke-card-width/13;
   transform: translate(-50%);
   z-index: 1;
 }
-.card{
-  position: relative;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  @extend .rounded;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #5c5a5c75;
-  z-index: 1;
-}
-
-.overlay:hover {
-  opacity: 1;
-}
 
 
 
@@ -99,4 +80,5 @@ $push-btn-inside-width: $poke-card-width/13;
     min-width: $poke-card-width-mobile;
     transition: all 0.3s ease;
   }
+ 
 }

@@ -1,15 +1,16 @@
 {{page-title 'MyPokemons'}}
 <div class='pokemons-container'>
   {{#each this.collection.pokemons as |pokemon|}}
-    <LinkTo @route=''>
+  <div class="btn-group">
+<LinkTo @route='pokemons.pokemon' @model={{pokemon.id}}>
       <ProfileCard
         @profileName={{pokemon.name}}
         @profileImg={{pokemon.image}}
       />
     </LinkTo>
+    <button type="button" class="btn btn-warning"{{on "click" (fn this.handleRelease pokemon.id)}}>Release</button>
+  </div>
   {{else}}
-    <div class='d-flex center'>
       <p>No pokemons found !</p>
-    </div>
   {{/each}}
 </div>

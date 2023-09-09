@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import getData from '../utils/get-data';
+import getData from 'pokemon/utils/get-data';
 
 export default class PokemonsRoute extends Route {
   queryParams = {
@@ -7,10 +7,8 @@ export default class PokemonsRoute extends Route {
       refreshModel: true,
     },
   };
-  async model({ limit,skipModel }) {
-    if(skipModel){
-      return null;
-    }
+  
+  async model({ limit }) {
     const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
     const pokemonsData = await getData(url);
     const pokemons = pokemonsData.results;

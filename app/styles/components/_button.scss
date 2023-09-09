@@ -39,6 +39,7 @@
 }
 .btn-warning {
   background-color: $warning-color;
+  color:rgb(67, 66, 66);
 }
 .btn-error {
   background-color: $error-color;
@@ -75,8 +76,8 @@
 }
 .btn-group{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap:0.3rem;
 }
 .active{
  @extend .btn-shadow-inset;
